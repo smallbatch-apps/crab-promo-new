@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Bangers");
+@import "tailwindcss";
+body,
+html {
+  background-color: #ece2c6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bangers", cursive;
+  color: white;
+}
+
+h1 {
+  text-shadow: -3px px 0 black;
+}
+h2,
+h3,
+h4 {
+  text-shadow: -2px 2px 0 black;
+}
+
+.blue {
+  background: linear-gradient(#3490dc, #2779bd);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+
+.sway {
+  animation: sway 5s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.sway-slow {
+  animation: sway 7s ease-in-out infinite;
+}
+
+.sway-fast {
+  animation: sway 3s ease-in-out infinite;
+}
+
+.sway-delayed {
+  animation-delay: 0.7s;
+}
