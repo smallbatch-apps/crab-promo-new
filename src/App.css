@@ -14,12 +14,14 @@ h4 {
 }
 
 h1 {
-  text-shadow: -3px px 0 black;
+  text-shadow: -3px 3px 0 black;
+  -webkit-text-stroke: 1px #333333;
 }
 h2,
 h3,
 h4 {
   text-shadow: -2px 2px 0 black;
+  -webkit-text-stroke: 0.5px #333333;
 }
 
 .blue {

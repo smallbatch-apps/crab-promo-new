@@ -1,4 +1,4 @@
 {
-  "typeProps": false,
-  "inlineExport": false
+  "typeProps": true,
+  "inlineExport": true
 }

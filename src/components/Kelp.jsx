@@ -5,7 +5,7 @@ export default function Kelp({ className = "" }) {
       height="300"
       viewBox="0 0 60 300"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`absolute origin-bottom bottom-0 ${className}`}
     >
       <path
         d="M40 300 Q20 250 40 200 Q60 150 40 100 Q20 50 40 8"
