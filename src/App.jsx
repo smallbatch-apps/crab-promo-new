@@ -3,10 +3,9 @@ import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import { motion, animate } from "motion/react";
 
-import CodeState from "./assets/code-state.png";
-import CodeExtends from "./assets/code-extends.png";
 import Rock from "./assets/rock.svg";
 import Shell from "./assets/shell.svg";
+import Bubbles from "./assets/bubbles.svg";
 
 import Crab from "./components/crab/Crab";
 import Kelp from "./components/Kelp";
@@ -83,9 +82,8 @@ function App() {
     }, 4000);
   };
 
-  const goToRock = (arc = 100) => {
+  const goToRock = (arc = 100, leftOrRight = "left") => {
     if (!rockRef.current || !crabRef.current) return;
-    console.log("goToRock");
 
     const rockBox = rockRef.current.getBoundingClientRect();
     const crabBox = crabRef.current.getBoundingClientRect();
@@ -96,8 +94,8 @@ function App() {
       y: crabBox.top - sceneBox.top,
     };
 
-    setCrabAction("wiggleLeft");
-    setCrabTimeout(1000);
+    setCrabAction(leftOrRight === "left" ? "wiggleLeft" : "wiggleRight");
+    setCrabTimeout(500);
 
     const end = {
       x: rockBox.left - sceneBox.left + 20,
@@ -129,7 +127,7 @@ function App() {
 
   useEffect(() => {
     // move crab to rock when component mounts
-    goToRock(100);
+    goToRock(100, "right");
     setTimeout(() => setCrabAction("waveAndClick"), 4500);
 
     const sectionEntries = [
@@ -179,6 +177,82 @@ function App() {
           ref={sceneRef}
           className="flex h-screen w-full items-stretch justify-center pointer-events-none fixed bottom-0 p-20 z-0 border"
         >
+          <div className="absolute top-0 left-0 w-full h-[100px] overflow-hidden z-0 pointer-events-none bg-white">
+            <div className="relative w-[200%] h-full ">
+              <svg
+                viewBox="0 0 1200 100"
+                preserveAspectRatio="none"
+                className="absolute top-0 left-0 w-full h-[100px] animate-waveSlow z-0"
+              >
+                <path
+                  d="
+      M0 50
+      Q 30 30, 60 50
+      T 120 50
+      T 180 50
+      T 240 50
+      T 300 50
+      T 360 50
+      T 420 50
+      T 480 50
+      T 540 50
+      T 600 50
+      T 660 50
+      T 720 50
+      T 780 50
+      T 840 50
+      T 900 50
+      T 960 50
+      T 1020 50
+      T 1080 50
+      T 1140 50
+      T 1200 50
+      V100 H0 Z
+    "
+                  fill="#3490dc"
+                />
+              </svg>
+
+              <svg
+                viewBox="0 0 1200 100"
+                preserveAspectRatio="none"
+                className="absolute top-0 left-0 w-[150%] h-[100px] z-0 opacity-70"
+              >
+                <path
+                  d="
+      M0 50
+      Q 30 30, 60 50
+      T 120 50
+      T 180 50
+      T 240 50
+      T 300 50
+      T 360 50
+      T 420 50
+      T 480 50
+      T 540 50
+      T 600 50
+      T 660 50
+      T 720 50
+      T 780 50
+      T 840 50
+      T 900 50
+      T 960 50
+      T 1020 50
+      T 1080 50
+      T 1140 50
+      T 1200 50
+      V100 H0 Z
+    "
+                  fill="#3490dc"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="sand absolute h-1/2 md:h-1/4 w-full bottom-0">
+            <div className="sand-shimmer" />
+          </div>
+
           <motion.div
             ref={crabRef}
             initial={{ x: -400, y: 600 }}
@@ -195,6 +269,12 @@ function App() {
             <Kelp className="absolute bottom-1 left-52 scale-25 origin-bottom sway" />
             <div className="w-[300px]">
               <img ref={rockRef} src={Rock} alt="rock" className="w-full" />
+            </div>
+
+            <div className="bubble-sway">
+              <div className="bubble size-12 bottom-32">
+                <img src={Bubbles} alt="bubbles" className="w-full" />
+              </div>
             </div>
           </div>
           <div className="flex-1 flex-col items-center justify-end relative hidden lg:flex">
@@ -221,11 +301,10 @@ function App() {
         {/* Section 1: Overview */}
         <section className="h-screen snap-start flex flex-col items-center justify-center px-12 relative z-20">
           <div className="w-3/5 text-center relative -top-40">
-            <h1 className="text-3xl">CRAB 2 - Tokyo Driftnet</h1>
-            <p className="mt-4">
+            <h1 className="text-6xl">CRAB 2 - Tokyo Driftnet</h1>
+            <p className="mt-4 text-white font-light text-2xl">
               A modern CLI for React inspired by EmberCLI, NestJS and Adonis.
-              Rewritten from scratch, it focuses on generating components in
-              React/NextJS.
+              Create components faster, and more consistently.
             </p>
           </div>
         </section>

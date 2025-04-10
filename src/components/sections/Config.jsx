@@ -15,7 +15,7 @@ const Config = forwardRef(({}, ref) => {
           to false.
         </p>
 
-        <dl className="text-xs grid mx-auto grid-cols-[auto_1fr] w-4/5 gap-x-4 gap-y-1 border bg-white rounded-lg p-4 mt-4">
+        <dl className="text-xs grid mx-auto grid-cols-[auto_1fr] w-full md:w-4/5 gap-x-4 gap-y-1 border bg-white rounded-lg p-4 mt-4">
           <dt className="font-bold">arrowFunction</dt>
           <dl>Use arrow function syntax</dl>
           <dt className="font-bold">importReact</dt>
