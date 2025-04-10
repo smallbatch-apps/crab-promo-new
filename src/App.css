@@ -129,8 +129,6 @@ h4 {
 }
 
 .bubble {
-  position: absolute;
-  left: 50%;
   z-index: 5;
   background: rgba(255, 255, 255, 0);
   border-color: transparent;
@@ -140,5 +138,6 @@ h4 {
 }
 
 .bubble-sway {
+  position: absolute;
   animation: bubblesSway 5s ease-in-out infinite;
 }

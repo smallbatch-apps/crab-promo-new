@@ -172,7 +172,7 @@ function App() {
 
   return (
     <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory relative">
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory relative text-black">
         <div
           ref={sceneRef}
           className="flex h-screen w-full items-stretch justify-center pointer-events-none fixed bottom-0 p-20 z-0 border"
@@ -267,12 +267,12 @@ function App() {
             <Kelp className="absolute bottom-0 left-20 scale-25 origin-bottom" />
             <Kelp className="absolute -bottom-1 left-1 z-15 scale-x-[-0.75] scale-75 origin-bottom sway-slow" />
             <Kelp className="absolute bottom-1 left-52 scale-25 origin-bottom sway" />
-            <div className="w-[300px]">
+            <div className="w-[300px] z-2">
               <img ref={rockRef} src={Rock} alt="rock" className="w-full" />
             </div>
 
-            <div className="bubble-sway">
-              <div className="bubble size-12 bottom-32">
+            <div className={`bubble-sway absolute bottom-32`}>
+              <div className="bubble size-12">
                 <img src={Bubbles} alt="bubbles" className="w-full" />
               </div>
             </div>
